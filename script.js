@@ -36,3 +36,25 @@ window.addEventListener("scroll", function () {
     headerMenu.classList.remove("on-scroll");
   }
 });
+
+gsap.registerPlugin(ScrambleTextPlugin);
+
+document.addEventListener("DOMContentLoaded", function () {
+  const tl = gsap.timeline();
+
+  tl.to(".hero-title", {
+    duration: 2,
+    scrambleText: {
+      text: "Your Name",
+      chars: "upperCase",
+      speed: 0.3,
+    },
+  }).to(".hero-description", {
+    duration: 3,
+    scrambleText: {
+      text: "I am a passionate web developer with a love for creating beautiful and functional websites.",
+      chars: "lowerCase",
+      speed: 0.1,
+    },
+  }, "-=1.5");
+});

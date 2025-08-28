@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0] - YYYY-MM-DD
+
+### Added
+- Implemented a text scramble effect for the hero title and description using GSAP ScrambleTextPlugin.
+
 ## [1.3.0] - YYYY-MM-DD
 
 ### Added
