@@ -11,19 +11,19 @@ if (headerMenu && burgerMenu) {
     document.body.setAttribute("data-lenis-prevent","");
   });
 
-headerBackdrop.addEventListener("click", function () {
-  burgerMenu.classList.remove("is-active");
-  headerMenu.classList.remove("menu-is-active");
-  document.body.classList.remove("overflow-hidden");
-  document.body.removeAttribute("data-lenis-prevent");
-});
+  headerBackdrop.addEventListener("click", function () {
+    burgerMenu.classList.remove("is-active");
+    headerMenu.classList.remove("menu-is-active");
+    document.body.classList.remove("overflow-hidden");
+    document.body.removeAttribute("data-lenis-prevent");
+  });
 
-closeMenu.addEventListener("click", function (){
-  burgerMenu.classList.remove("is-active");
-  headerMenu.classList.remove("menu-is-active");
-  document.body.classList.remove("overflow-hidden");
-  document.body.removeAttribute("data-lenis-prevent");
-});
+  closeMenu.addEventListener("click", function (){
+    burgerMenu.classList.remove("is-active");
+    headerMenu.classList.remove("menu-is-active");
+    document.body.classList.remove("overflow-hidden");
+    document.body.removeAttribute("data-lenis-prevent");
+  });
 }
 
 gsap.registerPlugin(ScrambleTextPlugin);
@@ -46,25 +46,4 @@ document.addEventListener("DOMContentLoaded", function () {
       speed: 0.1,
     },
   }, "-=1.5");
-
-  const heroSection = document.querySelector(".hero-section");
-  const header = document.querySelector(".header");
-
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.1,
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        header.classList.add("header-on-hero");
-      } else {
-        header.classList.remove("header-on-hero");
-      }
-    });
-  }, observerOptions);
-
-  observer.observe(heroSection);
 });
