@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0] - YYYY-MM-DD
+
+### Changed
+- The header font color now dynamically changes to black when over the hero section and white for all other sections.
+
 ## [1.4.0] - YYYY-MM-DD
 
 ### Added

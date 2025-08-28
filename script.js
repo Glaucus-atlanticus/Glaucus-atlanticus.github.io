@@ -26,17 +26,6 @@ closeMenu.addEventListener("click", function (){
 });
 }
 
-window.addEventListener("scroll", function () {
-  if (
-    this.scrollY >=
-    document.querySelector(".hero-section").offsetHeight / 2
-    ) {
-    headerMenu.classList.add("on-scroll");
-  } else {
-    headerMenu.classList.remove("on-scroll");
-  }
-});
-
 gsap.registerPlugin(ScrambleTextPlugin);
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -57,4 +46,25 @@ document.addEventListener("DOMContentLoaded", function () {
       speed: 0.1,
     },
   }, "-=1.5");
+
+  const heroSection = document.querySelector(".hero-section");
+  const header = document.querySelector(".header");
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        header.classList.add("header-on-hero");
+      } else {
+        header.classList.remove("header-on-hero");
+      }
+    });
+  }, observerOptions);
+
+  observer.observe(heroSection);
 });
