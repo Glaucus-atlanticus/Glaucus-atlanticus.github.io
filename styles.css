@@ -150,6 +150,9 @@ h6{
   text-align: center;
   height: 100vh;
   color: #fff;
+  background-image: url("https://i.imgur.com/fNF5KZZ.jpeg");
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-content {
