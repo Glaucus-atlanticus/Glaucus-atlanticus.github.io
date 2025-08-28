@@ -129,6 +129,19 @@ h6{
   color: #ccc;
 }
 
+.header.header-on-hero .brand,
+.header.header-on-hero .menu-link {
+  color: black;
+}
+
+.header.header-on-hero .menu-link:hover {
+  color: #333;
+}
+
+.header.header-on-hero .burger-line {
+  background-color: black;
+}
+
 .burger {
   display: none;
   cursor: pointer;
