@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.5.0] - YYYY-MM-DD
+## [1.6.0] - YYYY-MM-DD
+
+### Added
+- Added an interactive 3D profile card to the "About Me" section.
+- The card has a tilt effect that responds to mouse movement.
 
 ### Changed
 - Replaced the text scramble effect with a variable font proximity effect on the hero title and description. The font weight now changes based on the mouse's horizontal position.

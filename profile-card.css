@@ -1,0 +1,189 @@
+.pc-card-wrapper {
+  --card-opacity: 0.8;
+  --icon: none;
+  --grain: none;
+  --behind-gradient: radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y), hsla(266, 100%, 90%, var(--card-opacity)) 4%, hsla(266, 50%, 80%, calc(var(--card-opacity) * 0.75)) 10%, hsla(266, 25%, 70%, calc(var(--card-opacity) * 0.5)) 50%, hsla(266, 0%, 60%, 0) 100%), radial-gradient(35% 52% at 55% 20%, #00ffaac4 0%, #073aff00 100%), radial-gradient(100% 100% at 50% 50%, #00c1ffff 1%, #073aff00 76%), conic-gradient(from 124deg at 50% 50%, #c137ffff 0%, #07c6ffff 40%, #07c6ffff 60%, #c137ffff 100%);
+  --inner-gradient: linear-gradient(145deg, #60496e8c 0%, #71c4ff44 100%);
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+  --background-x: 50%;
+  --background-y: 50%;
+
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.pc-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+}
+
+.pc-inside {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: #1e1b2e;
+  overflow: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.pc-card-wrapper::before,
+.pc-card-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  opacity: var(--card-opacity, 0.5);
+  mix-blend-mode: color-dodge;
+  transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  background-position: var(--background-x) var(--background-y);
+}
+
+.pc-card-wrapper::before {
+  background-image: var(--behind-gradient);
+}
+
+.pc-card-wrapper::after {
+  background-image: var(--grain, none);
+}
+
+.pc-inside::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-image: var(--inner-gradient);
+  background-position: 50% 50%;
+  opacity: 1;
+  mix-blend-mode: src-over;
+}
+
+.pc-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  background: radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 80%,
+      rgba(255, 255, 255, 0.2) 100%);
+  opacity: 0;
+  mix-blend-mode: soft-light;
+  transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.pc-card.active .pc-shine {
+  opacity: 1;
+}
+
+.pc-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  background: radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.6) 40%,
+      transparent 100%);
+  opacity: 0;
+  mix-blend-mode: soft-light;
+  transform: translateZ(1px);
+  transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.pc-card.active .pc-glare {
+  opacity: 1;
+}
+
+.pc-content {
+  color: white;
+  padding: 20px;
+  text-align: center;
+  transform: translateZ(50px);
+}
+
+.pc-avatar-content .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-bottom: 10px;
+}
+
+.pc-user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.pc-user-details {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pc-mini-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.pc-user-text {
+  text-align: left;
+}
+
+.pc-handle {
+  font-weight: bold;
+}
+
+.pc-status {
+  font-size: 0.8em;
+  color: #ccc;
+}
+
+.pc-contact-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pc-contact-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.pc-details {
+  margin-top: 20px;
+}
+
+.pc-details h3 {
+  font-family: "Bentham", serif;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.pc-details p {
+  font-family: "Roboto", sans-serif;
+  margin: 5px 0 0;
+  color: #ccc;
+}
