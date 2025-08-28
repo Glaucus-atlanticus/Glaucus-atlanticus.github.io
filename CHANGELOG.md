@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - YYYY-MM-DD
+
+### Removed
+- Removed the Spline scene from the hero section.
+- Removed the placeholder SVG logo.
+
+### Changed
+- Reverted hero section CSS to its original state.
+- Added a `TODO` comment to remind the user to add their own logo.
+
 ## [1.1.0] - YYYY-MM-DD
 
 ### Added
