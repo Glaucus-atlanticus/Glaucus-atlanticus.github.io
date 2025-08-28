@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0] - YYYY-MM-DD
+
+### Changed
+- Replaced the text scramble effect with a variable font proximity effect on the hero title and description. The font weight now changes based on the mouse's horizontal position.
+
 ## [1.4.0] - YYYY-MM-DD
 
 ### Added

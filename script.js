@@ -26,24 +26,19 @@ if (headerMenu && burgerMenu) {
   });
 }
 
-gsap.registerPlugin(ScrambleTextPlugin);
-
 document.addEventListener("DOMContentLoaded", function () {
-  const tl = gsap.timeline();
+  const heroTitle = document.querySelector(".hero-title");
+  const heroDescription = document.querySelector(".hero-description");
+  const weights = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+  const range = weights[weights.length - 1] - weights[0];
 
-  tl.to(".hero-title", {
-    duration: 2,
-    scrambleText: {
-      text: "Your Name",
-      chars: "upperCase",
-      speed: 0.3,
-    },
-  }).to(".hero-description", {
-    duration: 3,
-    scrambleText: {
-      text: "I am a passionate web developer with a love for creating beautiful and functional websites.",
-      chars: "lowerCase",
-      speed: 0.1,
-    },
-  }, "-=1.5");
+  function updateWeight(event) {
+    const x = Math.round(event.pageX * range / window.innerWidth);
+    const weight = Math.round(x / 100) * 100 + 100;
+
+    gsap.to(heroTitle, { '--wght': weight });
+    gsap.to(heroDescription, { '--wght': weight });
+  }
+
+  document.body.addEventListener('mousemove', updateWeight);
 });
