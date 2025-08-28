@@ -26,7 +26,7 @@ closeMenu.addEventListener("click", function (){
 });
 }
 
-winder.addEventListener("scroll", funtion () {
+window.addEventListener("scroll", function () {
   if (
     this.scrollY >=
     document.querySelector(".hero-section").offsetHeight / 2
