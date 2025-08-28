@@ -11,60 +11,34 @@ if (headerMenu && burgerMenu) {
     document.body.setAttribute("data-lenis-prevent","");
   });
 
-headerBackdrop.addEventListener("click", function () {
-  burgerMenu.classList.remove("is-active");
-  headerMenu.classList.remove("menu-is-active");
-  document.body.classList.remove("overflow-hidden");
-  document.body.removeAttribute("data-lenis-prevent");
-});
+  headerBackdrop.addEventListener("click", function () {
+    burgerMenu.classList.remove("is-active");
+    headerMenu.classList.remove("menu-is-active");
+    document.body.classList.remove("overflow-hidden");
+    document.body.removeAttribute("data-lenis-prevent");
+  });
 
-closeMenu.addEventListener("click", function (){
-  burgerMenu.classList.remove("is-active");
-  headerMenu.classList.remove("menu-is-active");
-  document.body.classList.remove("overflow-hidden");
-  document.body.removeAttribute("data-lenis-prevent");
-});
+  closeMenu.addEventListener("click", function (){
+    burgerMenu.classList.remove("is-active");
+    headerMenu.classList.remove("menu-is-active");
+    document.body.classList.remove("overflow-hidden");
+    document.body.removeAttribute("data-lenis-prevent");
+  });
 }
 
-gsap.registerPlugin(ScrambleTextPlugin);
-
 document.addEventListener("DOMContentLoaded", function () {
-  const tl = gsap.timeline();
+  const heroTitle = document.querySelector(".hero-title");
+  const heroDescription = document.querySelector(".hero-description");
+  const weights = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+  const range = weights[weights.length - 1] - weights[0];
 
-  tl.to(".hero-title", {
-    duration: 2,
-    scrambleText: {
-      text: "Your Name",
-      chars: "upperCase",
-      speed: 0.3,
-    },
-  }).to(".hero-description", {
-    duration: 3,
-    scrambleText: {
-      text: "I am a passionate web developer with a love for creating beautiful and functional websites.",
-      chars: "lowerCase",
-      speed: 0.1,
-    },
-  }, "-=1.5");
+  function updateWeight(event) {
+    const x = Math.round(event.pageX * range / window.innerWidth);
+    const weight = Math.round(x / 100) * 100 + 100;
 
-  const heroSection = document.querySelector(".hero-section");
-  const header = document.querySelector(".header");
+    gsap.to(heroTitle, { '--wght': weight });
+    gsap.to(heroDescription, { '--wght': weight });
+  }
 
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.1,
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        header.classList.add("header-on-hero");
-      } else {
-        header.classList.remove("header-on-hero");
-      }
-    });
-  }, observerOptions);
-
-  observer.observe(heroSection);
+  document.body.addEventListener('mousemove', updateWeight);
 });
