@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - YYYY-MM-DD
+
+### Added
+- Embedded a Spline scene into the hero section of the website.
+- Adjusted CSS to position the Spline scene as a background element.
+
 ## [1.0.0] - YYYY-MM-DD
 
 ### Added
