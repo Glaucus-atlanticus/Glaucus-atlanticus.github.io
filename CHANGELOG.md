@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] - YYYY-MM-DD
+
+### Added
+- Added a background image to the hero section.
+
 ## [1.2.0] - YYYY-MM-DD
 
 ### Removed
